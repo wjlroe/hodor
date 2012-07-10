@@ -7,14 +7,15 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
+  config.vm.box = "natty64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "http://dl.dropbox.com/u/7490647/talifun-ubuntu-11.04-server-amd64.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
-  # config.vm.boot_mode = :gui
+  config.vm.boot_mode = :gui
 
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
@@ -75,7 +76,8 @@ Vagrant::Config.run do |config|
   # end
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks"
+    chef.cookbooks_path = ["cookbooks"]
+    chef.add_recipe "graylog2::server"
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,

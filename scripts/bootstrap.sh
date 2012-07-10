@@ -21,7 +21,8 @@ function grab_cookbook() {
 which vagrant || (echo "You need to install the vagrant gem"; exit 1)
 
 grab_cookbook graylog2 https://github.com/nilya/graylog2.cookbook.git
-grab_cookbook elasticsearch https://github.com/newspaperclub/elasticsearch-cookbook.git
-grab_cookbook mongodb-cookbooks https://github.com/edelight/chef-cookbooks.git
+grab_cookbook elasticsearch https://github.com/nistude/elasticsearch_cookbook.git
+grab_cookbook mongodb https://github.com/nistude/mongodb_cookbook.git
 grab_cookbook runit https://github.com/opscode-cookbooks/runit.git
 grab_cookbook java https://github.com/opscode-cookbooks/java.git
+grab_cookbook apt https://github.com/opscode-cookbooks/apt.git
