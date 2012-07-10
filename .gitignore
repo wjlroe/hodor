@@ -4,4 +4,5 @@ priv
 *.o
 *.beam
 *.plt
-graylog2_server/cookbooks
+graylog2_server
+!graylog2_server/Vagrantfile
