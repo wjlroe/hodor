@@ -2,13 +2,23 @@
 
 set -e
 
+function grab_cookbook() {
+    name=$1
+    url=$2
+    mkdir -p graylog2_server/cookbooks
+    cd graylog2_server/cookbooks
+    echo "pwd: $(pwd)"
+    if [ -d "${name}" ]; then
+        cd "${name}" && git pull
+        cd ../../..
+    else
+        git clone "${url}" "${name}"
+        cd ../..
+    fi
+
+}
+
 which vagrant || (echo "You need to install the vagrant gem"; exit 1)
 
-cd graylog2_server
-mkdir -p cookbooks
-cd cookbooks
-if [ -d graylog2 ]; then
-    cd graylog2 && git pull;
-else
-    git clone "https://github.com/nilya/graylog2.cookbook.git" graylog2
-fi
+grab_cookbook graylog2 https://github.com/nilya/graylog2.cookbook.git
+grab_cookbook elasticsearch https://github.com/newspaperclub/elasticsearch-cookbook.git
