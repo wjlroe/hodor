@@ -1,0 +1,12 @@
+{application, logstasherl,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { logstasherl_app, []}},
+  {env, []}
+ ]}.
